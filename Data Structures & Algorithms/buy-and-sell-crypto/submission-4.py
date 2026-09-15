@@ -1,0 +1,32 @@
+## Dynamic programming solution
+
+# class Solution:
+    # def maxProfit(self, prices: List[int]) -> int:
+        
+        # min_buy = prices[0]
+        # max_profit = 0
+
+        # for price in prices:
+        #     profit = price - min_buy
+
+        #     max_profit = max(max_profit, profit)
+
+        #     min_buy = min(min_buy, price)
+        
+        # return max_profit
+
+        ## Two Pointer solution
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        min_buy = prices[0]
+        max_profit = 0
+
+        for price in prices:
+            if price > min_buy:
+                profit = price - min_buy
+                max_profit = max(max_profit, profit)
+            else:
+                min_buy = min(min_buy, price)
+        
+        return max_profit
